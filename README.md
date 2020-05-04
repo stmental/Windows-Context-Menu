@@ -16,14 +16,19 @@ Based on the blog post from here, I created a .reg scripts that will do the foll
 These will be available in both the shell and background context menus (when you right-click on a folder node or right-click in the background in a folder).  I added back the command shell prompt because the default shell changed to PowerShell in the Windows 10 Creators Update.
 
 ---
-#To Run
+
+# To Run
+
 To run the script, open a command prompt as administrator and pass the script to the regedit command.
 ![](context_menu_installation.png)
 
 ---
+
 # Warnings
 
 Note that the script is specific to Visual Studio 2017 Enterprise edition and the default installation directory.  It will need to be adjusted if you don't have that.
 
-#Todo
-# Add scripts to clean up the registry if you want to remove these context menus
+---
+
+# Todo
+Add scripts to clean up the registry if you want to remove these context menus
