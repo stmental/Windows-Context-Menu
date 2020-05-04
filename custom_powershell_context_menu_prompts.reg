@@ -1,0 +1,28 @@
+Windows Registry Editor Version 5.00
+; Add a powershell context menu in shell and background
+; sub-menu contains entries for regular and elevated powershell prompt
+ 
+[HKEY_CLASSES_ROOT\Directory\shell\04MenuPowershellCmd]
+"MUIVerb"="Powershell"
+"Icon"="%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuPowershellCmd"
+ 
+[HKEY_CLASSES_ROOT\Directory\background\shell\04MenuPowershellCmd]
+"MUIVerb"="Powershell"
+"Icon"="%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuPowershellCmd"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowershellCmd\shell\open]
+"MUIVerb"="Powershell"
+"Icon"="%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowershellCmd\shell\open\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoExit -Command Set-Location -LiteralPath '%V'"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowershellCmd\shell\runas]
+"MUIVerb"="Powershell - Elevated"
+"Icon"="%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe"
+"HasLUAShield"=""
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuPowershellCmd\shell\runas\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoExit -Command Set-Location -LiteralPath '%V'"

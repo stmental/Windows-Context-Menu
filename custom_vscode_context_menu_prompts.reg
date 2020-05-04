@@ -1,0 +1,28 @@
+Windows Registry Editor Version 5.00
+; Add a VS Code context menu in shell and background
+; sub-menu contains entries for regular and elevated VS Code 
+ 
+[HKEY_CLASSES_ROOT\Directory\shell\03MenuVSCodeCmd]
+"MUIVerb"="VS Code"
+"Icon"="C:\Program Files\Microsoft VS Code\Code.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuVSCodeCmd"
+ 
+[HKEY_CLASSES_ROOT\Directory\background\shell\03MenuVSCodeCmd]
+"MUIVerb"="VS Code"
+"Icon"="C:\Program Files\Microsoft VS Code\Code.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuVSCodeCmd"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCodeCmd\shell\open]
+"MUIVerb"="VS Code"
+"Icon"="C:\Program Files\Microsoft VS Code\Code.exe"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCodeCmd\shell\open\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%V\""
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCodeCmd\shell\runas]
+"MUIVerb"="VS Code - Elevated"
+"Icon"="C:\Program Files\Microsoft VS Code\Code.exe"
+"HasLUAShield"=""
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCodeCmd\shell\runas\command]
+@="\"C:\\Program Files\\Microsoft VS Code\\Code.exe\" \"%V\""
