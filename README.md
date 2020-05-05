@@ -19,6 +19,9 @@ These will be available in both the shell and background context menus (when you
 
 # To Run
 
+Open a powershell prompt as administrator and run the install.ps1 script.  This script will interactively install the four context menus, if possible.
+
+Alternately, the *.reg scripts can be used by themselves with regedit (or reg import).
 To run the script, open a command prompt as administrator and pass the script to the regedit command.
 ![](context_menu_installation.png)
 
