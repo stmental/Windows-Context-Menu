@@ -57,18 +57,69 @@ catch{
     Write-Host "Could not find cmd.exe" -ForegroundColor Red
 }
 
-if (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe"){
+# Check for Visual Studio 2019 and 2017 Enterprise, Professional and Community editions
+if (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\devenv.exe"){
     if (-Not (Test-Path 'HKCR:\Directory\shell\02MenuVSCmd')){
         $installResponse = $null
-        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio Dev Console context menu? (Y/N)"
+        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio 2019 Enterprise Dev Console context menu? (Y/N)"
         if ($installResponse -eq 'Y'){
             Write-Host "`tInstalling VS dev console context menu..." -ForegroundColor yellow -NoNewline
-            reg import .\custom_vs2017_context_menu_prompts.reg
+            reg import .\custom_vs2019_enterprise_context_menu_prompts.reg
+            Write-Host "Done!" -ForegroundColor yellow
+        }
+    }
+} elseif (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\devenv.exe"){
+    if (-Not (Test-Path 'HKCR:\Directory\shell\02MenuVSCmd')){
+        $installResponse = $null
+        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio 2019 Community Dev Console context menu? (Y/N)"
+        if ($installResponse -eq 'Y'){
+            Write-Host "`tInstalling VS dev console context menu..." -ForegroundColor yellow -NoNewline
+            reg import .\custom_vs2019_professional_context_menu_prompts.reg
+            Write-Host "Done!" -ForegroundColor yellow
+        }
+    }
+} elseif (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"){
+    if (-Not (Test-Path 'HKCR:\Directory\shell\02MenuVSCmd')){
+        $installResponse = $null
+        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio 2019 Community Dev Console context menu? (Y/N)"
+        if ($installResponse -eq 'Y'){
+            Write-Host "`tInstalling VS dev console context menu..." -ForegroundColor yellow -NoNewline
+            reg import .\custom_vs2019_community_context_menu_prompts.reg
+            Write-Host "Done!" -ForegroundColor yellow
+        }
+    }
+} elseif (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe"){
+    if (-Not (Test-Path 'HKCR:\Directory\shell\02MenuVSCmd')){
+        $installResponse = $null
+        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio 2017 Enterprise Dev Console context menu? (Y/N)"
+        if ($installResponse -eq 'Y'){
+            Write-Host "`tInstalling VS dev console context menu..." -ForegroundColor yellow -NoNewline
+            reg import .\custom_vs2017_enterprise_context_menu_prompts.reg
+            Write-Host "Done!" -ForegroundColor yellow
+        }
+    }
+} elseif (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe"){
+    if (-Not (Test-Path 'HKCR:\Directory\shell\02MenuVSCmd')){
+        $installResponse = $null
+        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio2017 Professional Dev Console context menu? (Y/N)"
+        if ($installResponse -eq 'Y'){
+            Write-Host "`tInstalling VS dev console context menu..." -ForegroundColor yellow -NoNewline
+            reg import .\custom_vs2017_professional_context_menu_prompts.reg
+            Write-Host "Done!" -ForegroundColor yellow
+        }
+    }
+} elseif (Test-Path "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"){
+    if (-Not (Test-Path 'HKCR:\Directory\shell\02MenuVSCmd')){
+        $installResponse = $null
+        $installResponse = Get-Response -Response $installResponse -message "Install Visual Studio 2017 Community Dev Console context menu? (Y/N)"
+        if ($installResponse -eq 'Y'){
+            Write-Host "`tInstalling VS dev console context menu..." -ForegroundColor yellow -NoNewline
+            reg import .\custom_vs2017_community_context_menu_prompts.reg
             Write-Host "Done!" -ForegroundColor yellow
         }
     }
 } else {
-    Write-Host "Could not find Visual Studio 2017" -ForegroundColor Red
+    Write-Host "Could not find Visual Studio 2019 or 2017" -ForegroundColor Red
 }
 
 if (Test-Path "C:\Program Files\Microsoft VS Code\Code.exe"){

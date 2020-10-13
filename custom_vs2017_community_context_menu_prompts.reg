@@ -1,0 +1,29 @@
+Windows Registry Editor Version 5.00
+; Add a VS2017 DEV Prompts context menu in shell and background
+; sub-menu contains entries for regular and elevated VS 2017 Developer prompt
+; Only works for VS 2017 Community in default location (path specific)
+ 
+[HKEY_CLASSES_ROOT\Directory\shell\02MenuVSCmd]
+"MUIVerb"="VS2017 Dev Prompt"
+"Icon"="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuVSCmd"
+ 
+[HKEY_CLASSES_ROOT\Directory\background\shell\02MenuVSCmd]
+"MUIVerb"="VS2017 Dev Prompt"
+"Icon"="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
+"ExtendedSubCommandsKey"="Directory\\ContextMenus\\MenuVSCmd"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCmd\shell\open]
+"MUIVerb"="VS2017 Developer Prompt"
+"Icon"="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCmd\shell\open\command]
+@="cmd.exe /s /k pushd \"%V\" && \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\Tools\\VsDevCmd.bat\""
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCmd\shell\runas]
+"MUIVerb"="VS2017 Developer Prompt - Elevated"
+"Icon"="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe"
+"HasLUAShield"=""
+ 
+[HKEY_CLASSES_ROOT\Directory\ContextMenus\MenuVSCmd\shell\runas\command]
+@="cmd.exe /s /k pushd \"%V\" && \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\Common7\\Tools\\VsDevCmd.bat\""
